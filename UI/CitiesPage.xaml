@@ -1,0 +1,92 @@
+﻿<Page x:Class="TravelBook.UI.CitiesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="{StaticResource BackgroundBrush}">
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,20">
+            <TextBlock Text="🏙" FontSize="28" VerticalAlignment="Center"/>
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock Text="Міста" FontSize="22" FontWeight="Bold" Foreground="{StaticResource TextBrush}"/>
+                <TextBlock x:Name="TxtCityCount" FontSize="12" Foreground="{StaticResource MutedBrush}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Margin="0,0,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Background="White" CornerRadius="8"
+                    BorderBrush="#D0DDD9" BorderThickness="1.5" Margin="0,0,10,0">
+                <Grid>
+                    <TextBlock x:Name="SearchPlaceholder" Text="🔍  Пошук за назвою або країною…"
+                               Foreground="#BBCCCA" FontSize="13"
+                               VerticalAlignment="Center" Margin="12,0,0,0"/>
+                    <TextBox x:Name="TxtSearch" Background="Transparent" BorderThickness="0"
+                             FontSize="13" Padding="12,8" Foreground="{StaticResource TextBrush}"
+                             TextChanged="TxtSearch_TextChanged"
+                             GotFocus="TxtSearch_GotFocus"
+                             LostFocus="TxtSearch_LostFocus"/>
+                </Grid>
+            </Border>
+            <Button Grid.Column="1" Content="+ Додати місто"
+                    Style="{StaticResource PrimaryButton}" Click="BtnAdd_Click"/>
+        </Grid>
+
+        <ListBox x:Name="LstCities" Grid.Row="2"
+                 Background="Transparent" BorderThickness="0"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 ItemContainerStyle="{StaticResource CityListItem}"
+                 SelectionChanged="LstCities_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="52"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0" Width="44" Height="44"
+                                Background="#EDF5F3" CornerRadius="8">
+                            <TextBlock Text="🌍" FontSize="22"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Name}" FontSize="14" FontWeight="SemiBold"
+                                       Foreground="{StaticResource TextBrush}"/>
+                            <TextBlock Text="{Binding Country}" FontSize="12"
+                                       Foreground="{StaticResource MutedBrush}"/>
+                        </StackPanel>
+                        <Border Grid.Column="2" CornerRadius="12" Background="#EDF5F3"
+                                Padding="10,4" VerticalAlignment="Center">
+                            <TextBlock FontSize="12" FontWeight="SemiBold"
+                                       Foreground="{StaticResource PrimaryBrush}">
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0} пам.">
+                                        <Binding Path="Attractions.Count"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel x:Name="EmptyState" Grid.Row="2"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Visibility="Collapsed">
+            <TextBlock Text="🗺️" FontSize="48" HorizontalAlignment="Center"/>
+            <TextBlock Text="Міста ще не додано" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{StaticResource MutedBrush}" HorizontalAlignment="Center" Margin="0,8,0,4"/>
+            <TextBlock Text="Натисніть «+ Додати місто» щоб розпочати" FontSize="13"
+                       Foreground="{StaticResource MutedBrush}" HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Page>

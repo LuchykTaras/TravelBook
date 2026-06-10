@@ -1,0 +1,25 @@
+<Window x:Class="TravelBook.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TravelBook" Height="720" Width="1120"
+        MinHeight="640" MinWidth="980"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundBrush}">
+    <Grid>
+        <Border Width="240" HorizontalAlignment="Left"
+                Background="{StaticResource PrimaryBrush}">
+            <StackPanel Margin="0,30,0,0">
+                <StackPanel Margin="26,0,18,42">
+                    <TextBlock Text="✈" FontSize="32" Foreground="{StaticResource AccentBrush}"/>
+                    <TextBlock Text="TravelBook" FontSize="22" FontWeight="Bold"
+                               Foreground="White" Margin="0,4,0,0"/>
+                    <TextBlock Text="Планувальник подорожей" FontSize="10" Foreground="#9ECDC4"/>
+                </StackPanel>
+                <Button Content="🏙  Міста"    Style="{StaticResource NavButton}" Click="BtnCities_Click"/>
+                <Button Content="🗺  Маршрути" Style="{StaticResource NavButton}" Click="BtnRoutes_Click"/>
+                <Button Content="💰  Бюджет"   Style="{StaticResource NavButton}" Click="BtnBudget_Click"/>
+            </StackPanel>
+        </Border>
+        <Frame x:Name="MainFrame" Margin="240,0,0,0" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

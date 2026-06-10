@@ -1,0 +1,57 @@
+﻿<Window x:Class="TravelBook.UI.AttractionEditDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Пам'ятка" Width="420" SizeToContent="Height"
+        WindowStartupLocation="CenterOwner"
+        Background="{StaticResource BackgroundBrush}"
+        ResizeMode="NoResize">
+    <StackPanel Margin="28">
+        <TextBlock x:Name="TitleLabel" Text="Додати пам'ятку"
+                   FontSize="18" FontWeight="Bold"
+                   Foreground="{StaticResource TextBrush}" Margin="0,0,0,20"/>
+
+        <TextBlock Text="НАЗВА" Style="{StaticResource FieldLabel}"/>
+        <TextBox x:Name="TxtName" Style="{StaticResource ModernTextBox}" Margin="0,0,0,14"/>
+
+        <TextBlock Text="КАТЕГОРІЯ" Style="{StaticResource FieldLabel}"/>
+        <ComboBox x:Name="CmbCategory" Style="{StaticResource ModernComboBox}" Margin="0,0,0,14">
+            <ComboBoxItem Content="Музей"    Tag="Museum"     IsSelected="True"/>
+            <ComboBoxItem Content="Парк"     Tag="Park"/>
+            <ComboBoxItem Content="Ресторан" Tag="Restaurant"/>
+            <ComboBoxItem Content="Готель"   Tag="Hotel"/>
+            <ComboBoxItem Content="Інше"     Tag="Other"/>
+        </ComboBox>
+
+        <TextBlock Text="АДРЕСА" Style="{StaticResource FieldLabel}"/>
+        <TextBox x:Name="TxtAddress" Style="{StaticResource ModernTextBox}" Margin="0,0,0,14"/>
+
+        <Grid Margin="0,0,0,24">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="16"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="ЦІНА ВХОДУ (₴)" Style="{StaticResource FieldLabel}"/>
+                <TextBox x:Name="TxtPrice" Style="{StaticResource ModernTextBox}" Text="0"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <TextBlock Text="РЕЙТИНГ (1–5)" Style="{StaticResource FieldLabel}"/>
+                <ComboBox x:Name="CmbRating" Style="{StaticResource ModernComboBox}">
+                    <ComboBoxItem Content="★☆☆☆☆  (1)" Tag="1"/>
+                    <ComboBoxItem Content="★★☆☆☆  (2)" Tag="2"/>
+                    <ComboBoxItem Content="★★★☆☆  (3)" Tag="3" IsSelected="True"/>
+                    <ComboBoxItem Content="★★★★☆  (4)" Tag="4"/>
+                    <ComboBoxItem Content="★★★★★  (5)" Tag="5"/>
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Скасувати" Style="{StaticResource GhostButton}"
+                    Margin="0,0,10,0" Click="BtnCancel_Click"/>
+            <Button x:Name="BtnSave" Content="Зберегти"
+                    Style="{StaticResource PrimaryButton}" Click="BtnSave_Click"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
