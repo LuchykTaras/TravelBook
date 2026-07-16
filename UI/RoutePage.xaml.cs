@@ -87,7 +87,7 @@ namespace TravelBook.UI
                 ? "новий маршрут"
                 : $"створено {_currentRoute.CreatedDate:dd.MM.yyyy HH:mm}";
 
-            TxtSelectedInfo.Text = $"{status} · {_currentRoute.Cities.Count} міст(а) у маршруті";
+            TxtSelectedInfo.Text = $"{status} · {_currentRoute.Cities.Count} міст(а)/сіл  у маршруті";
         }
 
         private void BtnNewRoute_Click(object sender, RoutedEventArgs e)
@@ -111,7 +111,7 @@ namespace TravelBook.UI
         {
             if (CmbCities.SelectedItem is not City city)
             {
-                MessageBox.Show("Спочатку додайте хоча б одне місто у модулі «Міста».",
+                MessageBox.Show("Спочатку додайте хоча б одне місто чи село у модулі «Міста».",
                     "TravelBook", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }

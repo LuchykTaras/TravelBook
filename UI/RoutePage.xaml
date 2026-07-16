@@ -95,7 +95,7 @@
 
                                         <TextBlock Foreground="{StaticResource MutedBrush}" FontSize="12">
                                             <TextBlock.Text>
-                                                <MultiBinding StringFormat="{}{0} міст · {1:dd.MM.yyyy}">
+                                                <MultiBinding StringFormat="{}{0} пунктів · {1:dd.MM.yyyy}">
                                                     <Binding Path="Cities.Count"/>
                                                     <Binding Path="CreatedDate"/>
                                                 </MultiBinding>
@@ -147,7 +147,7 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Column="0">
-                            <TextBlock Text="ДОДАТИ МІСТО ДО МАРШРУТУ" Style="{StaticResource FieldLabel}"/>
+                            <TextBlock Text="ДОДАТИ МІСТО АБО СЕЛО ДО МАРШРУТУ" Style="{StaticResource FieldLabel}"/>
                             <ComboBox x:Name="CmbCities" Style="{StaticResource ModernComboBox}"/>
                         </StackPanel>
 
@@ -204,9 +204,9 @@
                                     VerticalAlignment="Center"
                                     Visibility="Collapsed">
                             <TextBlock Text="🧳" FontSize="46" HorizontalAlignment="Center"/>
-                            <TextBlock Text="У маршруті ще немає міст" FontSize="16" FontWeight="SemiBold"
+                            <TextBlock Text="У маршруті ще немає зупинок" FontSize="16" FontWeight="SemiBold"
                                        Foreground="{StaticResource MutedBrush}" HorizontalAlignment="Center" Margin="0,8,0,4"/>
-                            <TextBlock Text="Оберіть місто вище та додайте його до списку" FontSize="13"
+                            <TextBlock Text="Оберіть місто чи село вище та додайте його до списку" FontSize="13"
                                        Foreground="{StaticResource MutedBrush}" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Grid>

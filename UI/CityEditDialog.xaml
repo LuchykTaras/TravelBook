@@ -6,11 +6,11 @@
         Background="{StaticResource BackgroundBrush}"
         ResizeMode="NoResize">
     <StackPanel Margin="28">
-        <TextBlock x:Name="TitleLabel" Text="Додати місто"
+        <TextBlock x:Name="TitleLabel" Text="Додати місто/село"
                    FontSize="18" FontWeight="Bold"
                    Foreground="{StaticResource TextBrush}" Margin="0,0,0,20"/>
 
-        <TextBlock Text="НАЗВА МІСТА" Style="{StaticResource FieldLabel}"/>
+        <TextBlock Text="НАЗВА МІСТА/СЕЛА" Style="{StaticResource FieldLabel}"/>
         <TextBox x:Name="TxtName" Style="{StaticResource ModernTextBox}" Margin="0,0,0,14"/>
 
         <TextBlock Text="КРАЇНА" Style="{StaticResource FieldLabel}"/>

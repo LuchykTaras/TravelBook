@@ -31,8 +31,8 @@ namespace TravelBook.UI
             LstCities.ItemsSource = result;
 
             TxtCityCount.Text = string.IsNullOrWhiteSpace(query)
-                ? $"{result.Count} місто(міст) у базі"
-                : $"{result.Count} місто(міст) знайдено";
+                ? $"{result.Count} місто/село(міст/сіл) у базі"
+                : $"{result.Count} місто/село(міст/сіл) знайдено";
 
             EmptyState.Visibility = result.Count == 0 ? Visibility.Visible : Visibility.Collapsed;
         }
