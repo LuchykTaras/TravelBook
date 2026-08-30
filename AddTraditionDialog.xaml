@@ -1,0 +1,110 @@
+﻿<Window x:Class="TravelBook.UI.AddTraditionDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Додати нову традицію" Height="620" Width="440"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="{StaticResource BackgroundBrush}">
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок вікна -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,18">
+            <TextBlock FontSize="18" FontWeight="Bold">
+                <Run Text="🏮" Foreground="#FF4B4B"/>
+                <Run Text=" Додавання традиції чи звичаю" Foreground="{StaticResource TextBrush}"/>
+            </TextBlock>
+            <TextBlock Text="Заповніть інформацію про цікавий місцевий колорит" FontSize="11" Foreground="{StaticResource MutedBrush}" Margin="0,2,0,0"/>
+        </StackPanel>
+
+        <!-- Форма введення даних -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,0,0,16">
+            <StackPanel>
+                <!-- Назва -->
+                <TextBlock Text="Назва традиції / обряду" FontWeight="SemiBold" Margin="0,0,0,6" Foreground="{StaticResource TextBrush}"/>
+                <Border Background="White" CornerRadius="6" BorderBrush="#D0DDD9" BorderThickness="1" Margin="0,0,0,12">
+                    <TextBox x:Name="TxtTitle" BorderThickness="0" Padding="10,8" FontSize="13"/>
+                </Border>
+
+                <!-- Країна -->
+                <TextBlock Text="Країна (наприклад: Україна)" FontWeight="SemiBold" Margin="0,0,0,6" Foreground="{StaticResource TextBrush}"/>
+                <Border Background="White" CornerRadius="6" BorderBrush="#D0DDD9" BorderThickness="1" Margin="0,0,0,12">
+                    <TextBox x:Name="TxtCountry" BorderThickness="0" Padding="10,8" FontSize="13"/>
+                </Border>
+
+                <!-- Місто або Село -->
+                <TextBlock Text="Місто або Село (необов'язково)" FontWeight="SemiBold" Margin="0,0,0,6" Foreground="{StaticResource TextBrush}"/>
+                <Border Background="White" CornerRadius="6" BorderBrush="#D0DDD9" BorderThickness="1" Margin="0,0,0,12">
+                    <TextBox x:Name="TxtCityOrVillage" BorderThickness="0" Padding="10,8" FontSize="13"/>
+                </Border>
+
+                <!-- Категорія -->
+                <TextBlock Text="Категорія" FontWeight="SemiBold" Margin="0,0,0,6" Foreground="{StaticResource TextBrush}"/>
+                <Border Background="White" CornerRadius="6" BorderBrush="#D0DDD9" BorderThickness="1" Margin="0,0,0,12">
+                    <ComboBox x:Name="CmbCategory" BorderThickness="0" Padding="10,6" FontSize="13" SelectedIndex="0">
+                        <ComboBoxItem Content="Свята та обряди"/>
+                        <ComboBoxItem Content="Кулінарія (їжа та напої)"/>
+                        <ComboBoxItem Content="Одяг та ремесла"/>
+                        <ComboBoxItem Content="Легенди та міфи"/>
+                        <ComboBoxItem Content="Загальна"/>
+                    </ComboBox>
+                </Border>
+
+                <!-- Опис -->
+                <TextBlock Text="Детальний опис звичаю" FontWeight="SemiBold" Margin="0,0,0,6" Foreground="{StaticResource TextBrush}"/>
+                <Border Background="White" CornerRadius="6" BorderBrush="#D0DDD9" BorderThickness="1" Height="80" Margin="0,0,0,12">
+                    <TextBox x:Name="TxtDescription" BorderThickness="0" Padding="10,8" FontSize="13" 
+                             TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+                </Border>
+
+                <!-- Вибір зображення -->
+                <TextBlock Text="Фотографія або зображення" FontWeight="SemiBold" Margin="0,0,0,6" Foreground="{StaticResource TextBrush}"/>
+                <Grid Margin="0,0,0,12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0" Content="📸 Вибрати файл" Click="BtnSelectImage_Click" 
+                            Padding="12,8" Background="#E2ECE9" BorderThickness="0" Foreground="{StaticResource TextBrush}">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="6" />
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+
+                    <!-- Попередній перегляд обраного зображення -->
+                    <Border Grid.Column="1" Margin="12,0,0,0" Width="60" Height="45" 
+                            HorizontalAlignment="Left" CornerRadius="4" ClipToBounds="True" Background="#F5F7F6">
+                        <Image x:Name="ImgPreview" Stretch="UniformToFill"/>
+                    </Border>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Кнопки дій -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Content="Скасувати" Click="BtnCancel_Click"
+                    Margin="0,0,6,0" Padding="0,10" Background="#E2ECE9" BorderThickness="0" Foreground="{StaticResource TextBrush}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="6" />
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Grid.Column="1" Content="Зберегти" Click="BtnSave_Click"
+                    Style="{StaticResource PrimaryButton}" Margin="6,0,0,0" Padding="0,10"/>
+        </Grid>
+    </Grid>
+</Window>
