@@ -8,7 +8,7 @@ namespace TravelBook.Logic
 {
     public class TraditionService
     {
-        // 1. Отримати взагалі всі традиції з бази
+        // 1. Отримати всі традиції з бази
         public List<Tradition> GetAllTraditions()
         {
             using (var db = new TravelBookDbContext())
@@ -31,8 +31,8 @@ namespace TravelBook.Logic
                 }
                 else
                 {
-                    // Якщо назву міста/села не вказано, беремо тільки загальнонаціональні традиції
-                    query = query.Where(t => t.CityOrVillage == null || t.CityOrVillage == "");
+                    // Якщо місто/село не вказано, беремо тільки загальнонаціональні традиції
+                    query = query.Where(t => string.IsNullOrEmpty(t.CityOrVillage));
                 }
 
                 return query.ToList();
@@ -66,12 +66,7 @@ namespace TravelBook.Logic
                     item.CityOrVillage = tradition.CityOrVillage;
                     item.Category = tradition.Category;
                     item.Description = tradition.Description;
-
-                    // Оновлюємо фото, лише якщо користувач обрав нове
-                    if (!string.IsNullOrEmpty(tradition.ImagePath))
-                    {
-                        item.ImagePath = tradition.ImagePath;
-                    }
+                    item.ImagePath = tradition.ImagePath; // Оновлює шлях до фото
 
                     db.SaveChanges();
                 }

@@ -20,7 +20,7 @@ namespace TravelBook.UI
             => MainFrame.Navigate(new BudgetPage());
         private void BtnTraditions_Click(object sender, RoutedEventArgs e)
         {
-            
+
             MainFrame.Navigate(new TraditionsPage());
         }
     }
