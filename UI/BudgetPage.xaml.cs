@@ -33,8 +33,9 @@ namespace TravelBook.UI
             TxtRemaining.Text = FormatMoney(budget.Remaining);
 
             TxtRemaining.Foreground = budget.Remaining < 0
-                ? (System.Windows.Media.Brush)FindResource("DangerBrush")
-                : (System.Windows.Media.Brush)FindResource("PrimaryBrush");
+            ? (System.Windows.Media.Brush)FindResource("DangerBrush")
+            : new System.Windows.Media.SolidColorBrush(
+            System.Windows.Media.Color.FromRgb(0x16, 0xF2, 0x5F));
 
             var filteredExpenses = ApplyExpenseFilters(budget.Expenses);
 

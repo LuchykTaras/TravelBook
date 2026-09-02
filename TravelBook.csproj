@@ -25,7 +25,12 @@
 
 
 	<ItemGroup>
-	  <None Update="travelbook.db">
+	  <Page Include="App.xaml" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <None Update="UI\travelbook.db">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>

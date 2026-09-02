@@ -57,19 +57,28 @@
             <Border Grid.Column="0" Style="{StaticResource Card}">
                 <StackPanel>
                     <TextBlock Text="Бюджет" Style="{StaticResource FieldLabel}"/>
-                    <TextBlock x:Name="TxtBudgetTotal" FontSize="22" FontWeight="Bold" Foreground="{StaticResource TextBrush}"/>
+                    <TextBlock x:Name="TxtBudgetTotal"
+           FontSize="22"
+           FontWeight="Bold"
+           Foreground="#FFF2CC"/>
                 </StackPanel>
             </Border>
             <Border Grid.Column="2" Style="{StaticResource Card}">
                 <StackPanel>
                     <TextBlock Text="Витрачено" Style="{StaticResource FieldLabel}"/>
-                    <TextBlock x:Name="TxtSpent" FontSize="22" FontWeight="Bold" Foreground="{StaticResource DangerBrush}"/>
+                    <TextBlock x:Name="TxtSpent"
+           FontSize="22"
+           FontWeight="Bold"
+           Foreground="#FF5252"/>
                 </StackPanel>
             </Border>
             <Border Grid.Column="4" Style="{StaticResource Card}">
                 <StackPanel>
                     <TextBlock Text="Залишок" Style="{StaticResource FieldLabel}"/>
-                    <TextBlock x:Name="TxtRemaining" FontSize="22" FontWeight="Bold" Foreground="{StaticResource PrimaryBrush}"/>
+                    <TextBlock x:Name="TxtRemaining"
+           FontSize="22"
+           FontWeight="Bold"
+           Foreground="#16F25F"/>
                 </StackPanel>
             </Border>
         </Grid>
@@ -83,62 +92,158 @@
             </Grid.ColumnDefinitions>
 
             <!-- ЛІВА ПАНЕЛЬ: Додавання витрат та Статистика -->
-            <StackPanel Grid.Column="0">
-                <Border Style="{StaticResource Card}" Margin="0,0,0,16">
-                    <StackPanel>
-                        <TextBlock Text="Додати витрату" FontSize="15" FontWeight="Bold"
-                                   Foreground="{StaticResource TextBrush}" Margin="0,0,0,14"/>
+            <ScrollViewer Grid.Column="0"
+              VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Disabled"
+              CanContentScroll="False"
+              Margin="0"
+              Padding="0">
 
-                        <TextBlock Text="НАЗВА" Style="{StaticResource FieldLabel}"/>
-                        <TextBox x:Name="TxtExpenseTitle" Style="{StaticResource ModernTextBox}" Margin="0,0,0,12"/>
+                <StackPanel Margin="0,0,4,0">
 
-                        <TextBlock Text="КАТЕГОРІЯ" Style="{StaticResource FieldLabel}"/>
-                        <ComboBox x:Name="CmbExpenseCategory" Style="{StaticResource ModernComboBox}" Margin="0,0,0,12">
-                            <ComboBoxItem Content="Житло" Tag="Housing" IsSelected="True"/>
-                            <ComboBoxItem Content="Транспорт" Tag="Transport"/>
-                            <ComboBoxItem Content="Їжа" Tag="Food"/>
-                            <ComboBoxItem Content="Визначні місця" Tag="Attractions"/>
-                            <ComboBoxItem Content="Інше" Tag="Other"/>
-                        </ComboBox>
+                    <!-- ДОДАВАННЯ ВИТРАТИ -->
+                    <Border Style="{StaticResource Card}"
+                Margin="0,0,0,16"
+                Padding="16">
 
-                        <TextBlock Text="СУМА (₴)" Style="{StaticResource FieldLabel}"/>
-                        <TextBox x:Name="TxtExpenseAmount" Style="{StaticResource ModernTextBox}" Margin="0,0,0,12"/>
+                        <StackPanel>
 
-                        <TextBlock Text="ДАТА" Style="{StaticResource FieldLabel}"/>
-                        <DatePicker x:Name="DpExpenseDate" Height="36" Margin="0,0,0,18"/>
+                            <TextBlock Text="Додати витрату"
+                           FontSize="15"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource TextBrush}"
+                           Margin="0,0,0,14"/>
 
-                        <Button Content="+ Додати витрату" Style="{StaticResource AccentButton}"
-                                Click="BtnAddExpense_Click"/>
-                    </StackPanel>
-                </Border>
+                            <TextBlock Text="НАЗВА"
+                           Style="{StaticResource FieldLabel}"/>
 
-                <Border Style="{StaticResource Card}">
-                    <StackPanel>
-                        <TextBlock Text="Статистика за категоріями" FontSize="15" FontWeight="Bold"
-                                   Foreground="{StaticResource TextBrush}" Margin="0,0,0,12"/>
-                        <ItemsControl x:Name="StatsList">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Margin="0,0,0,12">
-                                        <Grid Margin="0,0,0,4">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock Text="{Binding Category}" Foreground="{StaticResource TextBrush}" FontWeight="SemiBold"/>
-                                            <TextBlock Grid.Column="1" Text="{Binding AmountText}" Foreground="{StaticResource MutedBrush}"/>
-                                        </Grid>
-                                        <ProgressBar Height="8" Minimum="0" Maximum="100" Value="{Binding Percent}"
-                                                     Background="#EDF5F3" Foreground="{StaticResource PrimaryBrush}"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                        <TextBlock x:Name="TxtNoStats" Text="Витрат ще немає" Foreground="{StaticResource MutedBrush}"
-                                   HorizontalAlignment="Center" Margin="0,8,0,0" Visibility="Collapsed"/>
-                    </StackPanel>
-                </Border>
-            </StackPanel>
+                            <TextBox x:Name="TxtExpenseTitle"
+                         Style="{StaticResource ModernTextBox}"
+                         Margin="0,0,0,10"/>
+
+
+                            <TextBlock Text="КАТЕГОРІЯ"
+                           Style="{StaticResource FieldLabel}"/>
+
+                            <ComboBox x:Name="CmbExpenseCategory"
+                          Style="{StaticResource ModernComboBox}"
+                          Margin="0,0,0,10">
+
+                                <ComboBoxItem Content="Житло"
+                                  Tag="Housing"
+                                  IsSelected="True"/>
+
+                                <ComboBoxItem Content="Транспорт"
+                                  Tag="Transport"/>
+
+                                <ComboBoxItem Content="Їжа"
+                                  Tag="Food"/>
+
+                                <ComboBoxItem Content="Визначні місця"
+                                  Tag="Attractions"/>
+
+                                <ComboBoxItem Content="Інше"
+                                  Tag="Other"/>
+
+                            </ComboBox>
+
+
+                            <TextBlock Text="СУМА (₴)"
+                           Style="{StaticResource FieldLabel}"/>
+
+                            <TextBox x:Name="TxtExpenseAmount"
+                         Style="{StaticResource ModernTextBox}"
+                         Margin="0,0,0,10"/>
+
+
+                            <TextBlock Text="ДАТА"
+                           Style="{StaticResource FieldLabel}"/>
+
+                            <DatePicker x:Name="DpExpenseDate"
+                            Height="36"
+                            MinHeight="36"
+                            VerticalContentAlignment="Center"
+                            HorizontalContentAlignment="Stretch"
+                            Margin="0,0,0,14"/>
+
+
+                            <Button Content="+ Додати витрату"
+                        Height="38"
+                        Style="{StaticResource AccentButton}"
+                        Click="BtnAddExpense_Click"/>
+
+                        </StackPanel>
+
+                    </Border>
+
+
+                    <!-- СТАТИСТИКА -->
+                    <Border Style="{StaticResource Card}"
+                Padding="16">
+
+                        <StackPanel>
+
+                            <TextBlock Text="Статистика за категоріями"
+                           FontSize="15"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource TextBrush}"
+                           Margin="0,0,0,12"/>
+
+                            <ItemsControl x:Name="StatsList">
+
+                                <ItemsControl.ItemTemplate>
+
+                                    <DataTemplate>
+
+                                        <StackPanel Margin="0,0,0,12">
+
+                                            <Grid Margin="0,0,0,4">
+
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <TextBlock Text="{Binding Category}"
+                                               Foreground="{StaticResource TextBrush}"
+                                               FontWeight="SemiBold"/>
+
+                                                <TextBlock Grid.Column="1"
+                                               Text="{Binding AmountText}"
+                                               Foreground="{StaticResource MutedBrush}"/>
+
+                                            </Grid>
+
+                                            <ProgressBar Height="8"
+                                             Minimum="0"
+                                             Maximum="100"
+                                             Value="{Binding Percent}"
+                                             Background="#191B21"
+                                             Foreground="{StaticResource AccentBrush}"/>
+
+                                        </StackPanel>
+
+                                    </DataTemplate>
+
+                                </ItemsControl.ItemTemplate>
+
+                            </ItemsControl>
+
+
+                            <TextBlock x:Name="TxtNoStats"
+                           Text="Витрат ще немає"
+                           Foreground="{StaticResource MutedBrush}"
+                           HorizontalAlignment="Center"
+                           Margin="0,8,0,0"
+                           Visibility="Collapsed"/>
+
+                        </StackPanel>
+
+                    </Border>
+
+                </StackPanel>
+
+            </ScrollViewer>
 
             <!-- ПРАВА ПАНЕЛЬ: Таблиця витрат із пошуком та фільтрацією -->
             <Border Grid.Column="2" Style="{StaticResource Card}" Padding="0">
