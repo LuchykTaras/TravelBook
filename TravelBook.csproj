@@ -30,7 +30,7 @@
 
 
 	<ItemGroup>
-	  <None Update="UI\travelbook.db">
+	  <None Update="travelbook.db">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
