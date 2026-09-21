@@ -7,21 +7,28 @@ namespace TravelBook.UI
         public MainWindow()
         {
             InitializeComponent();
+
             MainFrame.Navigate(new CitiesPage());
         }
 
         private void BtnCities_Click(object sender, RoutedEventArgs e)
-            => MainFrame.Navigate(new CitiesPage());
+        {
+            MainFrame.Navigate(new CitiesPage());
+        }
 
-        private void BtnRoutes_Click(object sender, RoutedEventArgs e)
-            => MainFrame.Navigate(new RoutePage());
-
-        private void BtnBudget_Click(object sender, RoutedEventArgs e)
-            => MainFrame.Navigate(new BudgetPage());
         private void BtnTraditions_Click(object sender, RoutedEventArgs e)
         {
-
             MainFrame.Navigate(new TraditionsPage());
+        }
+
+        private void BtnRoutes_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new RoutePage());
+        }
+
+        private void BtnBudget_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new BudgetPage());
         }
     }
 }
