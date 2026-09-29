@@ -1,0 +1,17 @@
+@TravelBook_Api_HostAddress = https://localhost:7090
+
+### Перевірка API
+
+GET {{TravelBook_Api_HostAddress}}/api/health
+Accept: application/json
+
+###
+
+### Надіслати OTP на BEST email
+
+POST {{TravelBook_Api_HostAddress}}/api/auth/request-code
+Content-Type: application/json
+
+{
+  "email": "taras.luchyk@best-eu.org"
+}
