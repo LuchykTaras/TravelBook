@@ -29,4 +29,23 @@
 
 	</ItemGroup>
 
+	<ItemGroup>
+
+		<Compile Remove="App.xaml.cs" />
+		<Compile Remove="TraditionsPage.xaml.cs" />
+		<Compile Remove="UI\**\*.cs" />
+		<Compile Remove="DataTraditions\**\*.cs" />
+		<Compile Remove="LocalData\**\*.cs" />
+		<Compile Remove="Logic\**\*.cs" />
+		<Compile Remove="MigrationsLocal\**\*.cs" />
+
+		<Compile Remove="Migrations\20260806171021_AddImagePathToTraditions.cs" />
+		<Compile Remove="Migrations\20260806171021_AddImagePathToTraditions.Designer.cs" />
+		<Compile Remove="Migrations\TravelBookDbContextModelSnapshot.cs" />
+
+		<ApplicationDefinition Remove="App.xaml" />
+		<Page Remove="**\*.xaml" />
+
+	</ItemGroup>
+
 </Project>
